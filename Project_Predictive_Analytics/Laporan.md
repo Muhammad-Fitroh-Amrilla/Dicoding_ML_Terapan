@@ -2,7 +2,8 @@
 
 ## Domain Proyek
 
-Transportasi sudah semakin berkembang saat ini. Dahulu kita masih berjalan kaki atau menggunakan tenaga hewan untuk berpergian, namun saat ini sudah menggunakan kendaraan beroda seperti sepeda motor yang sangat mudah digunakan dan lebih terjangkau.
+Transportasi sudah semakin berkembang saat ini. Dahulu kita masih berjalan kaki atau menggunakan tenaga hewan untuk berpergian, namun saat ini sudah menggunakan kendaraan beroda seperti sepeda motor. Tentunya sepeda motor lebih mudah digunakan dan lebih terjangkau harganya. Semakin hari produksi sepeda motor semakin banyak dan canggih menyebabkan penjualan sepeda motor meningkat baik itu baru atau bekas. Mengapa penjualan motor bekas juga mengalami kenaikan? karena menurut penelitian Indra Prasetya (2015) tentang
+ "PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS MENGGUNAKANFUZZY LOGIC (METODE TSUKAMOTO) DAN IMPLEMENTASINYA"
   
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
