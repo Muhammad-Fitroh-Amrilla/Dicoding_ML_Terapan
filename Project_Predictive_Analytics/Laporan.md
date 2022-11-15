@@ -12,32 +12,27 @@ Namun untuk penentuan harga sepeda motor bekas masih mengandalkan perkiraan. Unt
 
 ## Business Understanding
 
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
+Bagian ini menjelaskan mengenai klarifikasi masalah. Berikut merupakan problem statements dan goals:
 
 ### Problem Statements
 
-Menjelaskan pernyataan masalah latar belakang:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+Berdasarkan latar belakang yang telah dijelaskan diatas, terdapat beberapa masalah yaitu:
+- Variabel apa saja yang berpengaruh dalam menentukan harga sepeda motor bekas?
+- Berapa harga sepeda motor bekas dengan variabel tertentu? 
 
 ### Goals
 
-Menjelaskan tujuan dari pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
+Untuk menjawab masalah yang ada, akan dibuat model prediksi dengan tujuan sebagai berikut:
+- Mengetahui korelasi variabel yang mempengaruhi harga sepeda motor.
+- Membuat model machine learning yang dapat memprediksi harga sepeda motor bekas dengan akurat dari variabel yang ada.
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Statement” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
-
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution statement. Misalnya, menggunakan dua atau lebih algoritma untuk mencapai solusi yang diinginkan atau melakukan improvement pada baseline model dengan hyperparameter tuning.
-    - Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
+### Solution statements
+Solusi yang dapat dilakukan berupa:
+- Melakukan EDA dari variabel yang ada dengan memvisualisasikannya menggunakan heatmap untuk melihat korelasi terhadap harga sepeda motor bekas.
+- Menggunakan model machine learning yang bervariasi untuk memprediksi harga sepeda motor. Model yang dipakai berupa model klasifikasi, lalu dibandingkan hasil akurasinya untuk dipilih model mana yang memiliki hasil terbaik. Berikut model yang digunakan :
+	- Logistic Regression
+	- K-Nearest Neighbor
+	- Random Forest
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
