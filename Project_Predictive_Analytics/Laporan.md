@@ -1,8 +1,9 @@
-# Laporan Proyek Machine Learning - Muhammad FItroh Amrilla
+# Laporan Proyek Machine Learning - Muhammad Fitroh Amrilla
 
 ## Domain Proyek
 
-Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
+Transportasi sudah semakin berkembang saat ini. Dahulu kita masih berjalan kaki atau menggunakan tenaga hewan untuk berpergian, namun saat ini sudah menggunakan kendaraan beroda seperti sepeda motor yang sangat mudah digunakan dan lebih terjangkau.
+  
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
