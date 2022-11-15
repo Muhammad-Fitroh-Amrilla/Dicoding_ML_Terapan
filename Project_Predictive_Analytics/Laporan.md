@@ -3,8 +3,12 @@
 ## Domain Proyek
 
 Transportasi sudah semakin berkembang saat ini. Dahulu kita masih berjalan kaki atau menggunakan tenaga hewan untuk berpergian, namun saat ini sudah menggunakan kendaraan beroda seperti sepeda motor. Tentunya sepeda motor lebih mudah digunakan dan lebih terjangkau harganya. 
-Semakin hari produksi sepeda motor semakin banyak dan canggih menyebabkan penjualan sepeda motor meningkat baik itu baru atau bekas. Mengapa penjualan motor bekas juga mengalami kenaikan? karena menurut penelitian Indra Prasetya (2015) tentang
- ["PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS MENGGUNAKANFUZZY LOGIC (METODE TSUKAMOTO) DAN IMPLEMENTASINYA" ](https://jurnal.umk.ac.id/index.php/simet/article/view/466/501) dikatakan bahwa kebanyakan masyarakat akan menjual motor lamanya untuk membeli motor baru yang lebih canggih spesifikasinya.
+
+Semakin hari produksi sepeda motor semakin banyak dan canggih menyebabkan penjualan sepeda motor meningkat baik itu baru atau bekas. Mengapa penjualan motor bekas juga mengalami kenaikan? karena menurut penelitian Imam Sunoto (2015) tentang
+ ["SISTEM PENDUKUNG KEPUTUSAN PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS DENGAN PENDEKATAN LOGIKA FUZZY INFRENCE SYSTEM MAMDANI" ](https://jurnal.umk.ac.id/index.php/simet/article/view/466/501) dikatakan bahwa kebanyakan masyarakat akan menjual sepeda motor lamanya untuk membeli sepeda motor baru yang lebih canggih spesifikasinya.
+ 
+Namun untuk penentuan harga sepeda motor bekas masih mengandalkan perkiraan. Untuk memperkirakan harga motor bekas, jika ia seseorang ahli motor tentu akan mudah melakukannya sedangkan orang yang belum mengerti tentunya akan sulit untuk menentukan harga sebuah sepeda motor. Menurut penelitian Indra Prasetya (2015) yang berjudul ["PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS MENGGUNAKANFUZZY LOGIC (METODE TSUKAMOTO) DAN IMPLEMENTASINYA"](http://eprints.dinus.ac.id/16513/1/jurnal_15456.pdf) , untuk mengetahui sebuah harga motor bekas terdapat beberapa variabel yang menentukan. Oleh karena itu perlu adanya acuan untuk memprediksi harga sepeda motor bekas.
+
   
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
