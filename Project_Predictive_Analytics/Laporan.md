@@ -7,15 +7,8 @@ Transportasi sudah semakin berkembang saat ini. Dahulu kita masih berjalan kaki 
 Semakin hari produksi sepeda motor semakin banyak dan canggih menyebabkan penjualan sepeda motor meningkat baik itu baru atau bekas. Mengapa penjualan motor bekas juga mengalami kenaikan? karena menurut penelitian Imam Sunoto (2015) tentang
  ["SISTEM PENDUKUNG KEPUTUSAN PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS DENGAN PENDEKATAN LOGIKA FUZZY INFRENCE SYSTEM MAMDANI" ](https://jurnal.umk.ac.id/index.php/simet/article/view/466/501) dikatakan bahwa kebanyakan masyarakat akan menjual sepeda motor lamanya untuk membeli sepeda motor baru yang lebih canggih spesifikasinya.
  
-Namun untuk penentuan harga sepeda motor bekas masih mengandalkan perkiraan. Untuk memperkirakan harga motor bekas, jika ia seseorang ahli motor tentu akan mudah melakukannya sedangkan orang yang belum mengerti tentunya akan sulit untuk menentukan harga sebuah sepeda motor. Menurut penelitian Indra Prasetya (2015) yang berjudul ["PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS MENGGUNAKANFUZZY LOGIC (METODE TSUKAMOTO) DAN IMPLEMENTASINYA"](http://eprints.dinus.ac.id/16513/1/jurnal_15456.pdf) , untuk mengetahui sebuah harga motor bekas terdapat beberapa variabel yang menentukan. Oleh karena itu perlu adanya acuan untuk memprediksi harga sepeda motor bekas.
+Namun untuk penentuan harga sepeda motor bekas masih mengandalkan perkiraan. Untuk memperkirakan harga motor bekas, jika ia seseorang ahli motor tentu akan mudah melakukannya sedangkan orang yang belum mengerti tentunya akan sulit untuk menentukan harga sebuah sepeda motor. Menurut penelitian Indra Prasetya (2015) yang berjudul ["PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS MENGGUNAKANFUZZY LOGIC (METODE TSUKAMOTO) DAN IMPLEMENTASINYA"](http://eprints.dinus.ac.id/16513/1/jurnal_15456.pdf) , untuk mengetahui sebuah harga motor bekas terdapat beberapa variabel yang menentukan. Namun belum diketahui varibel apa saja yang dapat digunakan untuk memprediksi harga sepeda motor. Oleh karena itu perlu adanya acuan untuk memprediksi harga sepeda motor bekas.
 
-  
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-  
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
 
 ## Business Understanding
 
