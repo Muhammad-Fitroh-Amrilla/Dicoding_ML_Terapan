@@ -53,14 +53,53 @@ Link dataset dapat dilihat dari tautan berikut: [Motorcycle Dataset](https://www
 
 Untuk memahami Motorcycle dataset saya menggunakan beberapa tahapan dari teknik Explanatory Data Analysis (EDA) sebagai berikut:
 1.   Deskripsi Variabel
-2.   Menangani missing value
-3.   Analisis Univariate : fitur kategorik dan numerik
-4.   Analisis Multivariate : fitur kategorik dan numerik
+![Cek info dataset]( https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/info.PNG )
+![Cek deskripsi dataset]( https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/deksripsi.PNG )
+Dapat dilihat bahwa:
+*   Ada 3 kolom bertipe object, yaitu name, seller_type, owner
+*   Terdapat 3 kolom dengan tipe data int64, yaitu selling_price, year, km_driven 
+*   Terdapat 1 kolom dengan tipe data float yaitu ex_showroom_price
 
-### Deskrisi Variabel 
-'motor.info()'
+2.   Menangani missing value & outliers
+Langkah selanjutnya menggunakan salah satu teknik untuk mengatasi missing value yaitu mengganti missing value dengan nilai mean
+![Menangani missing value](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Missing_value.PNG )
+Outliers adalah sampel yang nilainya sangat jauh dari cakupan umum data utama. Pada kasus ini, outliers akan dideteksi dengan teknik visualisasi data (boxplot). Kemudian, ouliers akan ditangani dengan teknik IQR method
+![Menangani outliers](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Outliers.PNG )
+
+3.   Analisis Univariate
+Fitur kategorik
+![Fitur name](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/name.PNG )
+![Fitur seller_type](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/seller.PNG )
+![Fitur owner](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/owner.PNG )
+
+Fitur Numerik
+![Fitur numerik](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Univariate_numerik.PNG )
+
+Dapat disimpulkan bahwa :
+
+*   Analisis dari kolom name, jenis sepeda motor terbanyak yaitu Bajaj Pulsar 150 dengan jumlah sampel sebanyak 39 sampel dan presentase 4.4 %
+*   Analisis dari kolom seller_type dapat diketahui bahwa 876 penjual sepeda motor merupakan perorangan dan 4 diantaranya merupakan dealer
+*   Analisis dari kolom owner dapat dilihat bahwa sebanyak 87.6 % sepeda motor hanya dimiliki oleh orang pertama, 11.5 % dimiliki sampai dengan orang kedua dan yang terkahir 0.9 % sepeda motor dimiliki sampai dengan orang ketiga.
+*   Rentang harga jual sepeda motor dari ratusan dollar sampai dengan 130000 Dollar
+*   Jumlah terbanyak sepeda motor yang dijual berada di rentang harga 20000-40000 Dollar
 
 
+4.   Analisis Multivariate 
+Fitur Kategorik
+![Fitur numerik](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Multivariate_kategorik.PNG )
+Fitur Numerik
+![Fitur numerik](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Multivariate_numerik.PNG)
+
+Dapat kita lihat bahwa :
+*   Kategori dalam fitur name terlalu banyak sehingga fitur name tidak mempengaruhi fitur selling_price
+*   Pada fitur seller_type , individua merupakan yang paling tinggi dalam seller_type memiliki harga rendah. Sehingga fitur seller_type memiliki dampak yang kecil terhadap rata-rata harga jual
+*   Pada fitur owner rata-rata harga cenderung mirip. Rentangnya berada antara 35000 hingga 45000. Sehingga, fitur cut memiliki pengaruh atau dampak yang kecil terhadap rata-rata harga jual.
+*   selling_price memiliki korelasi positip terhadap variabel year dan ex_showroom_price
+*   sedangkan variabel km_driven memiliki korelasi negatif terhadap selling_price
+
+Correlation matrix untuk fitur numerik
+![Correlation Matrix](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Corrmap.PNG)
+Dapat dilihat matriks korelasi diatas, korelasi fitur year dan ex_showroom_price terhadap fitur selling_price berada pada rentang cukup (0.25 - 0.5) dan fitur yang memiliki korelasi paling tinggi terhadap fitur selling_price yaitu year sebesar 0.58
 
 ## Data Preparation
 Dalam data preparation saya melakukan 3 hal sebelum memasukkan data ke model latih:
@@ -83,20 +122,25 @@ Pada tahap ini, Saya mengembangkan model machine learning dengan tiga algoritma.
 		- **kelebihan** : Algoritma ini sangat powerful dalam meningkatkan akurasi prediksi. Algoritma boosting sering mengungguli model yang lebih sederhana seperti logistic regression dan random forest
 		- **kekurangan** : Learning secara progresif dan sangat sensitif terhadap data noise dan outlier.
 
+Hasil prediksi masing-masing model dari 10 data:
+![Hasil Prediksi](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/pred.PNG)
+Error dari masing-masing model:
+![Visualisasi Error](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/msevis.PNG)
+
+Dapat diliat bahwa model Random Forest memiliki nilai error yang lebih kecil dibanding model lain menandakan bahwa model Random FOrest merupakan model terbaik yang dapat digunakan untuk memprediksi harga jual sepeda motor bekas.
+
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+Metrik yang akan kita gunakan pada prediksi ini adalah MSE atau Mean Squared Error yang menghitung jumlah selisih kuadrat rata-rata nilai sebenarnya dengan nilai prediksi. MSE didefinisikan dalam persamaan berikut
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+Dimana :
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+At = Nilai Aktual permintaan
+Ft = Nilai hasil peramalan
+n = banyaknya data
 
+berikut adalah hasil evaluasi ketiga model menggunakan mse:
+![Visualisasi Error](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/mse.PNG)
 **---Ini adalah bagian akhir laporan---**
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+
