@@ -105,7 +105,7 @@ Fitur Numerik
 
 Dapat kita lihat bahwa :
 *   Kategori dalam fitur name terlalu banyak sehingga fitur name tidak mempengaruhi fitur selling_price
-*   Pada fitur seller_type , individua merupakan yang paling tinggi dalam seller_type memiliki harga rendah. Sehingga fitur seller_type memiliki dampak yang kecil terhadap rata-rata harga jual
+*   Pada fitur seller_type , individual merupakan yang paling tinggi dalam seller_type memiliki harga rendah. Sehingga fitur seller_type memiliki dampak yang kecil terhadap rata-rata harga jual
 *   Pada fitur owner rata-rata harga cenderung mirip. Rentangnya berada antara 35000 hingga 45000. Sehingga, fitur cut memiliki pengaruh atau dampak yang kecil terhadap rata-rata harga jual.
 *   selling_price memiliki korelasi positip terhadap variabel year dan ex_showroom_price
 *   sedangkan variabel km_driven memiliki korelasi negatif terhadap selling_price
