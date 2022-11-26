@@ -35,32 +35,53 @@ Solusi yang dapat dilakukan berupa:
 	- Random Forest
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Data atau dataset yang digunakan pada proyek machine learning ini adalah data motorcycle dataset yang didapat dari situs kaggle. Dataset ini berisikan informasi mengenai sepeda motor bekas. 
+Terdapat 1061 baris dalam dataset 
+Ada 7 Kolom yaitu: name, selling_price, year, seller_type, owner, km_driven, ex_showroom_price
+Link dataset dapat dilihat dari tautan berikut: [Motorcycle Dataset](https://www.kaggle.com/datasets/nehalbirla/motorcycle-dataset).
 
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+### Variabel-variabel pada Motorcycle dataset adalah sebagai berikut:  
+- name : merupakan jenis atau nama dari sepeda motor
+- selling_price : merupakan harga ketika penjual menjual sepeda motor
+- year : merupakan tahun ketika sepeda motor dibeli
+- seller_type : Memberitahukan apakah Penjual adalah Perorangan atau Dealer
+- owner : merupakan jumlah pemilik kendaraan sebelumnya.
+- km_driven : merupakan jumlah kilometer yang telah ditempuh sepeda motor
+- ex_showroom_price : merupakan harga showroom sepeda motor
+
+Untuk memahami Motorcycle dataset saya menggunakan beberapa tahapan dari teknik Explanatory Data Analysis (EDA) sebagai berikut:
+1.   Deskripsi Variabel
+2.   Menangani missing value
+3.   Analisis Univariate : fitur kategorik dan numerik
+4.   Analisis Multivariate : fitur kategorik dan numerik
+
+### Deskrisi Variabel 
+'motor.info()'
+
+
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+Dalam data preparation saya melakukan 3 hal sebelum memasukkan data ke model latih:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+- Encoding Fitur Kategorik : Encoding fitur kategorik dilaksanakan di beberapa fitur yang bertipe object. Hal ini dilakukan karena model machine learning hanya dapat menerima data dalam bentuk numerik. Saya menggunakan LabelEncoder untuk encoding fitur.
+- Train-Test-Split : Membagi dataset menjadi data latih dan data uji dengan perbandingan 90:10 yaitu 90 persen data akan menjadi data latih dan 10 persen data akan menjadi data uji . Hal ini dilakukan supaya kita dapat melakukan validasi dengan benar tanpa bias dari model.
+- Standarisasi : Standarisasi menggunakan teknik StandarScaler dari library Scikitlearn. StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi.  StandardScaler menghasilkan distribusi dengan standar deviasi sama dengan 1 dan mean sama dengan 0. Scaling ini dilaksanakan untuk membantu model machine learning yang akan dipakai lebih mudah diolah. 
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+Pada tahap ini, Saya mengembangkan model machine learning dengan tiga algoritma. Kemudian, Saya akan mengevaluasi performa masing-masing algoritma dan menentukan algoritma mana yang memberikan hasil prediksi terbaik. Ketiga algoritma yang akan digunakan, antara lain:
+
+1.   K-Nearest Neighbors (KNN) : KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif)
+		- **kelebihan** : algoritma KNN yaitu mudah dipahami dan digunakan serta algoritma yang relatif sederhana dibandingkan dengan algoritma lain.
+		- **kekurangan** : jika dihadapkan pada jumlah fitur atau dimensi yang besar
+2.   Random Forest : Algoritma ini disusun dari banyak algoritma pohon (decision tree) yang pembagian data dan fiturnya dipilih secara acak.
+		- **kelebihan** : Kuat terhadap data outlier (pencilan data), berjalan secara efisien pada kumpulan data yang besar, dan bekerja dengan baik dengan data non-linear.
+		- **kekurangan** : Pembelajaran bisa berjalan lambat, tergantung pada parameter yang digunakan dan tidak bisa memperbaiki model yang dihasilkan secara berulang.
+3.   Boosting Algorithm : Algoritma yang menggunakan teknik boosting bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan.
+		- **kelebihan** : Algoritma ini sangat powerful dalam meningkatkan akurasi prediksi. Algoritma boosting sering mengungguli model yang lebih sederhana seperti logistic regression dan random forest
+		- **kekurangan** : Learning secara progresif dan sangat sensitif terhadap data noise dan outlier.
 
 ## Evaluation
 Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
