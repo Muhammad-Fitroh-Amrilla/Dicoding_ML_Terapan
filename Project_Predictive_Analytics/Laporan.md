@@ -145,7 +145,7 @@ Error dari masing-masing model:
 
 ![Visualisasi Error](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/msevis.PNG)
 
-Dapat diliat bahwa model Random Forest memiliki nilai error yang lebih kecil dibanding model lain menandakan bahwa model Random FOrest merupakan model terbaik yang dapat digunakan untuk memprediksi harga jual sepeda motor bekas.
+Dapat diliat bahwa model Random Forest memiliki nilai error yang lebih kecil dibanding model lain menandakan bahwa model Random Forest merupakan model terbaik yang dapat digunakan untuk memprediksi harga jual sepeda motor bekas.
 
 ## Evaluation
 Metrik yang akan kita gunakan pada prediksi ini adalah MSE atau Mean Squared Error yang menghitung jumlah selisih kuadrat rata-rata nilai sebenarnya dengan nilai prediksi. MSE didefinisikan dalam persamaan berikut
@@ -153,13 +153,17 @@ Metrik yang akan kita gunakan pada prediksi ini adalah MSE atau Mean Squared Err
 ![Rumus MSE](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/rumusMSE.jpg)
 
 Dimana :
+
 At = Nilai Aktual permintaan
+
 Ft = Nilai hasil peramalan
+
 n = banyaknya data
 
 berikut adalah hasil evaluasi ketiga model menggunakan mse:
 
 ![Visualisasi Error](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/mse.PNG)
+
 **---Ini adalah bagian akhir laporan---**
 
 
