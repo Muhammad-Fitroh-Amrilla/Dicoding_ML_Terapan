@@ -53,8 +53,11 @@ Link dataset dapat dilihat dari tautan berikut: [Motorcycle Dataset](https://www
 
 Untuk memahami Motorcycle dataset saya menggunakan beberapa tahapan dari teknik Explanatory Data Analysis (EDA) sebagai berikut:
 1.   Deskripsi Variabel
+
 ![Cek info dataset]( https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/info.PNG )
+
 ![Cek deskripsi dataset]( https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/deksripsi.PNG )
+
 Dapat dilihat bahwa:
 *   Ada 3 kolom bertipe object, yaitu name, seller_type, owner
 *   Terdapat 3 kolom dengan tipe data int64, yaitu selling_price, year, km_driven 
@@ -62,17 +65,24 @@ Dapat dilihat bahwa:
 
 2.   Menangani missing value & outliers
 Langkah selanjutnya menggunakan salah satu teknik untuk mengatasi missing value yaitu mengganti missing value dengan nilai mean
+
 ![Menangani missing value](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Missing_value.PNG )
+
 Outliers adalah sampel yang nilainya sangat jauh dari cakupan umum data utama. Pada kasus ini, outliers akan dideteksi dengan teknik visualisasi data (boxplot). Kemudian, ouliers akan ditangani dengan teknik IQR method
+
 ![Menangani outliers](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Outliers.PNG )
 
 3.   Analisis Univariate
 Fitur kategorik
+
 ![Fitur name](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/name.PNG )
+
 ![Fitur seller_type](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/seller.PNG )
+
 ![Fitur owner](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/owner.PNG )
 
 Fitur Numerik
+
 ![Fitur numerik](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Univariate_numerik.PNG )
 
 Dapat disimpulkan bahwa :
@@ -86,8 +96,11 @@ Dapat disimpulkan bahwa :
 
 4.   Analisis Multivariate 
 Fitur Kategorik
+
 ![Fitur numerik](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Multivariate_kategorik.PNG )
+
 Fitur Numerik
+
 ![Fitur numerik](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Multivariate_numerik.PNG)
 
 Dapat kita lihat bahwa :
@@ -98,7 +111,9 @@ Dapat kita lihat bahwa :
 *   sedangkan variabel km_driven memiliki korelasi negatif terhadap selling_price
 
 Correlation matrix untuk fitur numerik
+
 ![Correlation Matrix](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Corrmap.PNG)
+
 Dapat dilihat matriks korelasi diatas, korelasi fitur year dan ex_showroom_price terhadap fitur selling_price berada pada rentang cukup (0.25 - 0.5) dan fitur yang memiliki korelasi paling tinggi terhadap fitur selling_price yaitu year sebesar 0.58
 
 ## Data Preparation
@@ -123,8 +138,11 @@ Pada tahap ini, Saya mengembangkan model machine learning dengan tiga algoritma.
 		- **kekurangan** : Learning secara progresif dan sangat sensitif terhadap data noise dan outlier.
 
 Hasil prediksi masing-masing model dari 10 data:
+
 ![Hasil Prediksi](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/pred.PNG)
+
 Error dari masing-masing model:
+
 ![Visualisasi Error](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/msevis.PNG)
 
 Dapat diliat bahwa model Random Forest memiliki nilai error yang lebih kecil dibanding model lain menandakan bahwa model Random FOrest merupakan model terbaik yang dapat digunakan untuk memprediksi harga jual sepeda motor bekas.
@@ -132,14 +150,15 @@ Dapat diliat bahwa model Random Forest memiliki nilai error yang lebih kecil dib
 ## Evaluation
 Metrik yang akan kita gunakan pada prediksi ini adalah MSE atau Mean Squared Error yang menghitung jumlah selisih kuadrat rata-rata nilai sebenarnya dengan nilai prediksi. MSE didefinisikan dalam persamaan berikut
 
+![Rumus MSE](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/rumusMSE.jpg)
 
 Dimana :
-
 At = Nilai Aktual permintaan
 Ft = Nilai hasil peramalan
 n = banyaknya data
 
 berikut adalah hasil evaluasi ketiga model menggunakan mse:
+
 ![Visualisasi Error](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/mse.PNG)
 **---Ini adalah bagian akhir laporan---**
 
