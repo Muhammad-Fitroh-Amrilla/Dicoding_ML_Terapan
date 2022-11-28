@@ -41,8 +41,8 @@ Solusi yang dapat dilakukan berupa:
 ## Data Understanding
 Data atau dataset yang digunakan pada proyek *machine learning* ini adalah data *Motorcycle* dataset yang didapat dari situs kaggle. Dataset ini berisikan informasi mengenai sepeda motor bekas. 
 Terdapat 1061 baris dalam dataset 
-Ada 7 Kolom yaitu: name, selling_price, year, seller_type, owner, km_driven, ex_showroom_price
-Link dataset dapat dilihat dari tautan berikut: [Motorcycle Dataset](https://www.kaggle.com/datasets/nehalbirla/motorcycle-dataset).
+Ada 7 Kolom yaitu: name, selling_price, year, seller_type, owner, km_driven, ex_showroom_price. 
+Link dataset dapat dilihat dari tautan berikut : [Motorcycle Dataset](https://www.kaggle.com/datasets/nehalbirla/motorcycle-dataset).
 
 
 
@@ -65,7 +65,7 @@ Gambar 1. Info dataset
 Pada Gambar 1, dapat dilihat bahwa:
 *   Ada 3 kolom bertipe object, yaitu name, seller_type, owner
 *   Terdapat 3 kolom dengan tipe data int64, yaitu selling_price, year, km_driven 
-*   Terdapat 1 kolom dengan tipe data float yaitu ex_showroom_price
+*   Terdapat 1 kolom dengan tipe data float64 yaitu ex_showroom_price
 
 2.   Menangani *missing value & outliers*
 
