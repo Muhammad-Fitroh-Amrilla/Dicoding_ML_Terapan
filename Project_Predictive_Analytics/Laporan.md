@@ -8,13 +8,6 @@ Semakin hari produksi sepeda motor semakin banyak dan canggih menyebabkan penjua
  
 Namun untuk penentuan harga sepeda motor bekas masih mengandalkan perkiraan. Untuk memperkirakan harga motor bekas, jika ia seseorang ahli motor tentu akan mudah melakukannya sedangkan orang yang belum mengerti tentunya akan sulit untuk menentukan harga sebuah sepeda motor. Menurut penelitian Indra Prasetya (2015), untuk mengetahui sebuah harga motor bekas terdapat beberapa variabel yang menentukan [ [2](http://eprints.dinus.ac.id/16513/1/jurnal_15456.pdf) ]. Namun belum diketahui varibel apa saja yang dapat digunakan untuk memprediksi harga sepeda motor. Oleh karena itu perlu adanya acuan untuk memprediksi harga sepeda motor bekas.
 
-Referensi :
-
-[1]	I. Sunoto dan L. Lukman, “SISTEM PENDUKUNG KEPUTUSAN PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS DENGAN PENDEKATAN LOGIKA FUZZY INFRENCE SYSTEM MAMDANI,” Simet, vol. 6, no. 2, hlm. 305, Nov 2015, doi: 10.24176/simet.v6i2.466.
-
-[2]	I. Prasetya, D. Y. Rahayu, dan M. Kom, “PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS MENGGUNAKAN FUZZY LOGIC (METODE TSUKAMOTO) DAN IMPLEMENTASINYA,” hlm. 8.
-
-		
 
 ## Business Understanding
 
@@ -58,7 +51,15 @@ Link dataset dapat dilihat dari tautan berikut : [Motorcycle Dataset](https://ww
 Untuk memahami *Motorcycle* dataset akan menggunakan beberapa tahapan dari teknik *Explanatory Data Analysis* (EDA) sebagai berikut:
 1.   Deskripsi Variabel
 
-![info](https://user-images.githubusercontent.com/64821050/204170270-890ca401-6d05-4cfd-b802-221702f915a6.PNG)
+| # | Column            | Non-Null Count | Dtype   |
+|---|-------------------|----------------|---------|
+| 0 | name              | 1061 non-null  | object  |
+| 1 | selling_price     | 1061 non-null  | int64   |
+| 2 | year              | 1061 non-null  | int64   |
+| 3 | seller_type       | 1061 non-null  | object  |
+| 4 | owner             | 1061 non-null  | object  |
+| 5 | km_driven         | 1061 non-null  | int64   |
+| 6 | ex_showroom_price | 626 non-null   | float64 |
 
 Gambar 1. Info dataset
 
@@ -208,6 +209,13 @@ Pada tabel 2, dapat kita lihat bahwa prediksi dari ketiga algoritma yang paling 
 
 **Kesimpulan** :  Korelasi variabel yang mempengaruhi harga sepeda motor bekas terdapat beberapa variabel yang memiliki korelasi positif dan negatif terhadap variabel harga jual dan untuk model *machine learning* yang memiliki nilai *error* paling rendah yaitu model *Random Forest* yang menandakan bahwa *Random Forest* merupakan algoritma terbaik dibandingkan dengan algoritma yang lain dalam hal memprediksi harga sepeda motor bekas.
 
+**Referensi** :
+
+[1]	I. Sunoto dan L. Lukman, “SISTEM PENDUKUNG KEPUTUSAN PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS DENGAN PENDEKATAN LOGIKA FUZZY INFRENCE SYSTEM MAMDANI,” Simet, vol. 6, no. 2, hlm. 305, Nov 2015, doi: 10.24176/simet.v6i2.466.
+
+[2]	I. Prasetya, D. Y. Rahayu, dan M. Kom, “PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS MENGGUNAKAN FUZZY LOGIC (METODE TSUKAMOTO) DAN IMPLEMENTASINYA,” hlm. 8.
+
+		
 **---Ini adalah bagian akhir laporan---**
 
 
