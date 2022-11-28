@@ -56,7 +56,7 @@ Link dataset dapat dilihat dari tautan berikut: [Motorcycle Dataset](https://www
 Untuk memahami *Motorcycle* dataset saya menggunakan beberapa tahapan dari teknik *Explanatory Data Analysis* (EDA) sebagai berikut:
 1.   Deskripsi Variabel
 
-![Cek info dataset]( https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/info.PNG )
+![info](https://user-images.githubusercontent.com/64821050/204170270-890ca401-6d05-4cfd-b802-221702f915a6.PNG)
 
 Gambar 1. Info dataset
 
@@ -71,19 +71,20 @@ Langkah selanjutnya menggunakan salah satu teknik untuk mengatasi *missing value
 3.   Analisis *Univariate*
 Fitur kategorik
 
-![Fitur name](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/name.PNG )
+![name](https://user-images.githubusercontent.com/64821050/204170314-a77fd41e-51e1-43a0-86c4-18652150df5e.PNG)
+
 
 Gambar 2. Analisis fitur name
 
 Pada Gambar 2, jenis sepeda motor terbanyak yaitu Bajaj Pulsar 150 dengan jumlah sampel sebanyak 39 sampel dan presentase 4.4 %
 
-![Fitur seller_type](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/seller.PNG )
+![seller](https://user-images.githubusercontent.com/64821050/204170333-60e1d74a-10d1-47bc-a3e6-eeff7a9df45e.PNG)
 
 Gambar 3. Analisis fitur seller_type
 
 Pada Gambar 3, dapat diketahui bahwa 876 penjual sepeda motor merupakan perorangan dan 4 diantaranya merupakan dealer
 
-![Fitur owner](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/owner.PNG )
+![owner](https://user-images.githubusercontent.com/64821050/204170359-b74dc667-e38f-4caf-834f-0de4b1af7e3e.PNG)
 
 Gambar 4. Analisis fitur owner
 
@@ -91,7 +92,7 @@ Pada Gambar 4, dapat dilihat bahwa sebanyak 87.6 % sepeda motor hanya dimiliki o
 
 Fitur Numerik
 
-![Fitur numerik](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Univariate_numerik.PNG )
+![Univariate_numerik](https://user-images.githubusercontent.com/64821050/204170385-2a96773a-c0c0-46fc-8570-848013c83907.PNG)
 
 Gambar 5. Analisis fitur numerik
 
@@ -103,7 +104,7 @@ Pada Gambar 5, dapat dilihat bahwa :
 4.   Analisis *Multivariate* 
 Fitur Kategorik
 
-![Fitur numerik](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Multivariate_kategorik.PNG )
+![Multivariate_kategorik](https://user-images.githubusercontent.com/64821050/204170437-1c941849-bd55-42bd-acb4-8ebb0f7a896d.PNG)
 
 Gambar 6. Analisis *multivariate* fitur kategorik
 
@@ -114,7 +115,7 @@ Pada gambar 6, dapat dilihat bahwa
 
 Fitur Numerik
 
-![Fitur numerik](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Multivariate_numerik.PNG)
+![Multivariate_numerik](https://user-images.githubusercontent.com/64821050/204170412-2b7b1404-720a-4418-bcc1-442a846e08db.PNG)
 
 Gambar 7. Analisis *multivariate* fitur numerik
 
@@ -124,7 +125,7 @@ Dapat kita lihat bahwa :
 
 *Correlation matrix* untuk fitur numerik
 
-![Correlation Matrix](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/Corrmap.PNG)
+![Corrmap](https://user-images.githubusercontent.com/64821050/204170454-af0706e0-ff98-44dc-9f9f-c4beed636e92.PNG)
 
 Gambar 8. *Correlation matrix* fitur numerik
 
@@ -153,37 +154,56 @@ Pada tahap ini, model *machine learning* yang akan dipakai ada tiga algoritma. L
 
 *Error* dari masing-masing model:
 
-![Visualisasi Error](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/msevis.PNG)
+![msevis](https://user-images.githubusercontent.com/64821050/204170536-61960d51-e2c2-40ec-984c-8bdc9cc07c62.PNG)
 
-Dapat diliat bahwa model *Random Forest* memiliki nilai *error* yang lebih kecil dibanding model lain menandakan bahwa model *Random Forest* merupakan model terbaik yang dapat digunakan untuk memprediksi harga jual sepeda motor bekas.
+Gambar 9. Visualisasi mse
+
+Pada Gambar 9, dapat diliat bahwa model *Random Forest* memiliki nilai *error* yang lebih kecil dibanding model lain menandakan bahwa model *Random Forest* merupakan model terbaik yang dapat digunakan untuk memprediksi harga jual sepeda motor bekas.
 
 ## Evaluation
 Metrik yang akan kita gunakan pada prediksi ini adalah MSE atau *Mean Squared Error* yang menghitung jumlah selisih kuadrat rata-rata nilai sebenarnya dengan nilai prediksi. MSE didefinisikan dalam persamaan berikut
 
-![Rumus MSE](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/rumusMSE.jpg)
+MSE = $\frac{1}{n} \Sigma_{i=1}^n({y}-\hat{y})^2$
 
 Dimana :
 
-At = Nilai Aktual permintaan
+y = Nilai Aktual permintaan
 
-Ft = Nilai hasil peramalan
+hat{y} = Nilai hasil peramalan
 
 n = banyaknya data
 
-berikut adalah hasil evaluasi ketiga model menggunakan mse:
+berikut adalah hasil evaluasi ketiga model menggunakan mse pada tabel 1.
 
-![Visualisasi Error](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/mse.PNG)
+Tabel 1. Nilai mse pada data uji dan data latih dari ketiga model
 
-Gambar 9. Visualisasi mse
+|              |   **Train**   |    **Test**   |
+|--------------|:-------------:|:-------------:|
+|    **KNN**   | 187692.530355 | 408256.640368 |
+|    **RF**    | 21742.955798  | 191000.645023 |
+| **Boosting** | 211202.420774 | 248793.555393 |
 
-Pada Gambar 9, dapat diliat bahwa model *Random Forest* memiliki nilai *error* yang lebih kecil dibanding model lain pada data latih dan data uji.
+Pada Tabel 1, dapat diliat bahwa model *Random Forest* memiliki nilai *error* yang lebih kecil dibanding model lain pada data latih dan data uji.
 
-Hasil prediksi masing-masing model dari 10 data:
+Hasil prediksi masing-masing model dari 10 data dapat dilihat pada tabel 2.
 
-![Hasil Prediksi](https://github.com/Muhammad-Fitroh-Amrilla/Dicoding_ML_Terapan/blob/main/Dokumentasi/pred.PNG)
+Tabel 2. Hasil prediksi ketiga model dari 10 data
+|          | **y_true** | **prediksi_KNN** | **prediksi_RF** | **prediksi_Boosting** |
+|----------|-----------:|-----------------:|----------------:|----------------------:|
+|  **491** |      55000 |          31550.0 |         27342.2 |               28580.3 |
+|  **637** |      65000 |          48300.0 |         52330.0 |               37077.8 |
+| **1043** |      27000 |          25699.9 |         29220.0 |               38776.2 |
+|  **203** |      30000 |          27650.0 |         17340.0 |               25483.2 |
+|  **415** |      38000 |          31840.0 |         30802.0 |               32782.8 |
+|  **525** |      25000 |          29420.0 |         27883.1 |               28580.3 |
+|  **939** |      30000 |          30970.0 |         31870.0 |               28580.3 |
+|  **212** |      15000 |          27300.0 |         20978.0 |               25129.9 |
+|  **778** |      20000 |          20460.0 |         17548.0 |               24911.5 |
+|  **826** |     100000 |         107200.0 |         84346.0 |               81196.1 |
 
-Dapat kita lihat bahwa prediksi dari ketiga algoritma yang paling mendekati y_true adalah prediksi *Random Forest* menandakan bahwa *Random Forest* merupakan algoritma terbaik dibandingkan dengan algoritma yang lain.
+Pada tabel 2, dapat kita lihat bahwa prediksi dari ketiga algoritma yang paling mendekati y_true adalah prediksi *Random Forest* menandakan bahwa *Random Forest* merupakan algoritma terbaik dibandingkan dengan algoritma yang lain.
 
+**Kesimpulan** :  Korelasi variabel yang mempengaruhi harga sepeda motor bekas terdapat beberapa variabel yang memiliki korelasi positif dan negatif terhadap variabel harga jual dan untuk model *machine learning* yang memiliki nilai *error* paling rendah yaitu model *Random Forest* yang menandakan bahwa *Random Forest* merupakan algoritma terbaik dibandingkan dengan algoritma yang lain dalam hal memprediksi harga sepeda motor bekas.
 
 **---Ini adalah bagian akhir laporan---**
 
