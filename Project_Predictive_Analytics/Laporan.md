@@ -4,12 +4,14 @@
 
 Transportasi sudah semakin berkembang saat ini. Dahulu kita masih berjalan kaki atau menggunakan tenaga hewan untuk berpergian, namun saat ini sudah menggunakan kendaraan beroda seperti sepeda motor. Tentunya sepeda motor lebih mudah digunakan dan lebih terjangkau harganya. 
 
-Semakin hari produksi sepeda motor semakin banyak dan canggih menyebabkan penjualan sepeda motor meningkat baik itu baru atau bekas. Mengapa penjualan motor bekas juga mengalami kenaikan? karena menurut penelitian Imam Sunoto (2015)dikatakan bahwa kebanyakan masyarakat akan menjual sepeda motor lamanya untuk membeli sepeda motor baru yang lebih canggih spesifikasinya  [1](https://jurnal.umk.ac.id/index.php/simet/article/view/466/501).
+Semakin hari produksi sepeda motor semakin banyak dan canggih menyebabkan penjualan sepeda motor meningkat baik itu baru atau bekas. Mengapa penjualan motor bekas juga mengalami kenaikan? karena menurut penelitian Imam Sunoto (2015)dikatakan bahwa kebanyakan masyarakat akan menjual sepeda motor lamanya untuk membeli sepeda motor baru yang lebih canggih spesifikasinya  [1](https://jurnal.umk.ac.id/index.php/simet/article/view/466/501 "[1]").
  
-Namun untuk penentuan harga sepeda motor bekas masih mengandalkan perkiraan. Untuk memperkirakan harga motor bekas, jika ia seseorang ahli motor tentu akan mudah melakukannya sedangkan orang yang belum mengerti tentunya akan sulit untuk menentukan harga sebuah sepeda motor. Menurut penelitian Indra Prasetya (2015), untuk mengetahui sebuah harga motor bekas terdapat beberapa variabel yang menentukan [2](http://eprints.dinus.ac.id/16513/1/jurnal_15456.pdf). Namun belum diketahui varibel apa saja yang dapat digunakan untuk memprediksi harga sepeda motor. Oleh karena itu perlu adanya acuan untuk memprediksi harga sepeda motor bekas.
+Namun untuk penentuan harga sepeda motor bekas masih mengandalkan perkiraan. Untuk memperkirakan harga motor bekas, jika ia seseorang ahli motor tentu akan mudah melakukannya sedangkan orang yang belum mengerti tentunya akan sulit untuk menentukan harga sebuah sepeda motor. Menurut penelitian Indra Prasetya (2015), untuk mengetahui sebuah harga motor bekas terdapat beberapa variabel yang menentukan [2](http://eprints.dinus.ac.id/16513/1/jurnal_15456.pdf "[2]"). Namun belum diketahui varibel apa saja yang dapat digunakan untuk memprediksi harga sepeda motor. Oleh karena itu perlu adanya acuan untuk memprediksi harga sepeda motor bekas.
 
 Referensi :
+
 [1]	I. Sunoto dan L. Lukman, “SISTEM PENDUKUNG KEPUTUSAN PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS DENGAN PENDEKATAN LOGIKA FUZZY INFRENCE SYSTEM MAMDANI,” Simet, vol. 6, no. 2, hlm. 305, Nov 2015, doi: 10.24176/simet.v6i2.466.
+
 [2]	I. Prasetya, D. Y. Rahayu, dan M. Kom, “PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS MENGGUNAKAN FUZZY LOGIC (METODE TSUKAMOTO) DAN IMPLEMENTASINYA,” hlm. 8.
 
 		
@@ -53,7 +55,7 @@ Link dataset dapat dilihat dari tautan berikut: [Motorcycle Dataset](https://www
 - km_driven : merupakan jumlah kilometer yang telah ditempuh sepeda motor
 - ex_showroom_price : merupakan harga showroom sepeda motor
 
-Untuk memahami *Motorcycle* dataset saya menggunakan beberapa tahapan dari teknik *Explanatory Data Analysis* (EDA) sebagai berikut:
+Untuk memahami *Motorcycle* dataset akan menggunakan beberapa tahapan dari teknik *Explanatory Data Analysis* (EDA) sebagai berikut:
 1.   Deskripsi Variabel
 
 ![info](https://user-images.githubusercontent.com/64821050/204170270-890ca401-6d05-4cfd-b802-221702f915a6.PNG)
@@ -66,6 +68,7 @@ Pada Gambar 1, dapat dilihat bahwa:
 *   Terdapat 1 kolom dengan tipe data float yaitu ex_showroom_price
 
 2.   Menangani *missing value & outliers*
+
 Langkah selanjutnya menggunakan salah satu teknik untuk mengatasi *missing value* yaitu mengganti *missing value* dengan nilai rata-rata. Kemudian menangani *outlier*, *outliers* adalah sampel yang nilainya sangat jauh dari cakupan umum data utama. Pada kasus ini, *outliers* akan dideteksi dengan teknik visualisasi data (boxplot). Kemudian, *ouliers* akan ditangani dengan teknik *IQR method*.
 
 3.   Analisis *Univariate*
@@ -108,7 +111,7 @@ Fitur Kategorik
 
 Gambar 6. Analisis *multivariate* fitur kategorik
 
-Pada gambar 6, dapat dilihat bahwa
+Pada gambar 6, dapat dilihat bahwa :
 *   Kategori dalam fitur name terlalu banyak sehingga fitur name tidak mempengaruhi fitur selling_price
 *   Pada fitur seller_type , individual merupakan yang paling tinggi dalam seller_type memiliki harga rendah. Sehingga fitur seller_type memiliki dampak yang kecil terhadap rata-rata harga jual
 *   Pada fitur owner rata-rata harga cenderung mirip. Rentangnya berada antara 35000 hingga 45000. Sehingga, fitur cut memiliki pengaruh atau dampak yang kecil terhadap rata-rata harga jual.
@@ -142,13 +145,13 @@ Dalam *data preparation*, 3 hal yang akan dilakukan sebelum memasukkan data ke m
 
 Pada tahap ini, model *machine learning* yang akan dipakai ada tiga algoritma. Lalu performa masing-masing algoritma akan dievaluasi dan menentukan algoritma mana yang memberikan hasil prediksi terbaik. Ketiga algoritma yang akan digunakan, antara lain:
 
-1.   *K-Nearest Neighbors* (KNN) : KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif)
+1.   *K-Nearest Neighbors* (KNN) : KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif). Untuk parameter yang akan digunakan yaitu n_neighbors dengan nilai sebesar 10.
 		- **kelebihan** : algoritma KNN yaitu mudah dipahami dan digunakan serta algoritma yang relatif sederhana dibandingkan dengan algoritma lain.
 		- **kekurangan** : jika dihadapkan pada jumlah fitur atau dimensi yang besar
-2.   *Random Forest* : Algoritma ini disusun dari banyak algoritma pohon (*decision tree*) yang pembagian data dan fiturnya dipilih secara acak.
+2.   *Random Forest* : Algoritma ini disusun dari banyak algoritma pohon (*decision tree*) yang pembagian data dan fiturnya dipilih secara acak.  Untuk parameter yang akan digunakan yaitu n_estimators=50, max_depth=16, random_state=55, n_jobs=-1.
 		- **kelebihan** : Kuat terhadap data *outlier* (pencilan data), berjalan secara efisien pada kumpulan data yang besar, dan bekerja dengan baik dengan data non-linear.
 		- **kekurangan** : Pembelajaran bisa berjalan lambat, tergantung pada parameter yang digunakan dan tidak bisa memperbaiki model yang dihasilkan secara berulang.
-3.   *Boosting Algorithm* : Algoritma yang menggunakan teknik *boosting* bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan.
+3.   *Boosting Algorithm* : Algoritma yang menggunakan teknik *boosting* bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan.  Untuk parameter yang akan digunakan yaitu learning_rate=0.05, random_state=55.
 		- **kelebihan** : Algoritma ini sangat *powerful* dalam meningkatkan akurasi prediksi. Algoritma *boosting* sering mengungguli model yang lebih sederhana seperti *logistic regression* dan *random forest*
 		- **kekurangan** : *Learning* secara progresif dan sangat sensitif terhadap data *noise* dan *outlier*.
 
@@ -169,7 +172,7 @@ Dimana :
 
 y = Nilai Aktual permintaan
 
-hat{y} = Nilai hasil peramalan
+$hat{y}$ = Nilai hasil peramalan
 
 n = banyaknya data
 
