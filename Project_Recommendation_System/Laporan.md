@@ -2,12 +2,12 @@
 
 ## Domain Proyek
 
-Pada masa ini, banyak orang yang membutuhkan hiburan untuk menghilangkan penat, penat dan stress dari aktivitas sehari-hari. Salah satu hiburan yang bisa menghilangkan penat dan stress adalah menonton film.
-Karena meningkatnya penggemar film, baik film Asia maupun film Barat, hal ini memunculkan ide untuk mengembangkan informasi tentang industri perfilman. Dengan cara memberikan informasi tentang film kepada masyarakat agar masyarakat tertarik untuk menonton film yang disarankan dan masyarakat mengetahui gambaran film yang ingin dilihat menggunakan sistem rekomendasi [ [1](https://openlibrarypublications.telkomuniversity.ac.id/index.php/engineering/article/view/16513/16222) ]..
+Pada masa ini, banyak orang yang membutuhkan hiburan untuk menghilangkan penat, penat dan stress dari aktifitas sehari-hari. Salah satu hiburan yang bisa menghilangkan penat dan stress adalah menonton film.
+Karena meningkatnya penggemar film, baik film Asia maupun film Barat, hal ini memunculkan ide untuk mengembangkan informasi tentang industri perfilman. Dengan cara memberikan informasi tentang film kepada masyarakat agar masyarakat tertarik untuk menonton film yang disarankan dan masyarakat mengetahui gambaran film yang ingin dilihat menggunakan sistem rekomendasi [ [1](https://openlibrarypublications.telkomuniversity.ac.id/index.php/engineering/article/view/16513/16222) ].
 
 
 Sistem rekomendasi adalah aplikasi yang digunakan untuk memberikan rekomendasi kepada pengguna untuk membantu mereka membuat keputusan yang diinginkan. Data untuk memberikan rekomendasi kepada pengguna menggunakan filter data dan untuk merekomendasikan produk. Ada beberapa faktor yang dapat mempengaruhi keputusan sistem untuk merekomendasikan pengguna, seperti perilaku pengguna, deskripsi produk, preferensi dan kebiasaan kelompok pengguna yang memiliki kesamaan dalam menilai suatu produk.
-Penelitian sejenis pernah dilakukan oleh Rizqi dan Arrie (2021) yang menyatakan bahwa dengan menggunakan sistem rekomendasi berbasis deep learning dapat meningkatkan kinerja serta meningkatkan kepuasan pengguna aplikasi 
+Penelitian sejenis pernah dilakukan oleh Rizqi dan Arrie (2021) yang menyatakan bahwa dengan menggunakan sistem rekomendasi berbasis *deep learning* dapat meningkatkan kinerja serta meningkatkan kepuasan pengguna aplikasi 
 [ [2](https://journal.uii.ac.id/AUTOMATA/article/view/17426/10934) ].
 Oleh karena itu sistem rekomendasi film dikembangkan untuk menjawab permasalahan tersebut.
 
@@ -16,26 +16,26 @@ Oleh karena itu sistem rekomendasi film dikembangkan untuk menjawab permasalahan
 ### Problem Statements
 
 Berdasarkan latar belakang yang telah dijelaskan diatas, terdapat beberapa masalah yaitu:
-- Berdasarkan data mengenai pengguna, bagaimana membuat sistem rekomendasi yang dipersonalisasi dengan teknik content-based filtering?
-- Dengan data rating yang dimiliki, bagaimana merekomendasikan film lain yang mungkin disukai dan belum pernah ditonton oleh pengguna? 
+- Berdasarkan data mengenai pengguna, bagaimana membuat sistem rekomendasi film yang dipersonalisasi dengan teknik *content-based filtering*?
+- Dengan data rating yang dimiliki, bagaimana merekomendasikan film lain yang mungkin disukai dan belum pernah *ditonton oleh pengguna*? 
 
 ### Goals
 
 Untuk menjawab masalah yang ada, akan dibuat model prediksi dengan tujuan sebagai berikut:
-- Menghasilkan sejumlah rekomendasi film yang dipersonalisasi untuk pengguna dengan teknik content-based filtering.
-- Menghasilkan sejumlah rekomendasi film yang sesuai dengan preferensi pengguna dan belum pernah ditonton sebelumnya dengan teknik collaborative filtering.
+- Menghasilkan sejumlah rekomendasi film yang dipersonalisasi untuk pengguna dengan teknik *content-based filtering*.
+- Menghasilkan sejumlah rekomendasi film yang sesuai dengan preferensi pengguna dan belum pernah ditonton sebelumnya dengan teknik *collaborative filtering*.
 
 ### Solution statements
 Solusi yang dapat dilakukan untuk sistem rekomendasi film dengan menggunakan 2 algoritma *machine learning* yaitu:
-- Content-based filtering yaitu merekomendasikan item yang mirip dengan item yang disukai pengguna di masa lalu. Algoritma ini bekerja dengan menyarankan item serupa yang pernah disukai di masa lalu atau sedang dilihat di masa kini kepada pengguna. Semakin banyak informasi yang diberikan pengguna, semakin baik akurasi sistem rekomendasi.
-- Collaborative filtering bergantung pada pendapat komunitas pengguna. Ia tidak memerlukan atribut untuk setiap itemnya seperti pada sistem berbasis konten.
+- ***Content-based filtering*** : merekomendasikan item yang mirip dengan item yang disukai pengguna di masa lalu. Algoritma ini bekerja dengan menyarankan item serupa yang pernah disukai di masa lalu atau sedang dilihat di masa kini kepada pengguna. Semakin banyak informasi yang diberikan pengguna, semakin baik akurasi sistem rekomendasi.
+- ***Collaborative filtering*** : bergantung pada pendapat komunitas pengguna. Ia tidak memerlukan atribut untuk setiap itemnya seperti pada sistem berbasis konten.
 
-Algoritma Content Based Filtering digunakan untuk merekemondesikan movie berdasarkan aktivitas pengguna pada masa lalu, sedangkan algoritma Collaborative Filltering digunakan untuk merekomendasikan movie berdasarkan ratings yang paling tinggi.
+Algoritma *content based filtering* digunakan untuk merekomendasikan film berdasarkan aktivitas pengguna pada masa lalu, sedangkan algoritma *collaborative filltering* digunakan untuk merekomendasikan film berdasarkan *rating* yang paling tinggi.
 
 ## Data Understanding
-Data atau dataset yang digunakan pada proyek *machine learning* ini adalah data *Movie Recommendation* dataset yang didapat dari situs kaggle. Dataset ini berisikan informasi mengenai film dari tahun 1996 sampai 2016. 
+Data atau dataset yang digunakan pada proyek *machine learning* ini adalah data *Movie Recommendation* dataset yang didapat dari situs Kaggle. Dataset ini berisikan informasi mengenai film dari tahun 1996 sampai 2016. 
 Terdapat 4 file data dalam dataset. 
-Link dataset dapat dilihat dari tautan berikut : [Motorcycle Dataset](https://www.kaggle.com/datasets/nehalbirla/motorcycle-dataset).
+Link dataset dapat dilihat dari tautan berikut : [*Movie Recommendation* Dataset](https://www.kaggle.com/datasets/bandikarthik/movie-recommendation-system).
 
 
 
@@ -47,7 +47,7 @@ Link dataset dapat dilihat dari tautan berikut : [Motorcycle Dataset](https://ww
 - tags : merupakan daftar kata kunci dari film tersebut
 
 Untuk memahami *Movie Recommendation* dataset akan menggunakan beberapa teknik *Univariate Explanatory Data Analysis (EDA)* pada variabel-variabel berikut:
-1.   Deskripsi Variabel
+1.   Variabel links
 
 | # | Column            | Non-Null Count | Dtype   |
 |---|-------------------|----------------|---------|
