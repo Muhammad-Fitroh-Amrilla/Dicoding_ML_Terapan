@@ -144,7 +144,7 @@ Dalam proses persiapan data dibagi menjadi 2 berdasarkan algoritma yang digunaka
 
 ***Collaborative filtering***
 
-- ** *Encode* fitur userId dan movieId*** : Melakukan persiapan data untuk menjadikan (*encode*) fitur ‘userId’ dan ‘movieID’ ke dalam indeks integer. Hal ini diperlukan agar data siap digunakan untuk pemodelan.
+- ***Encode*** **fitur userId dan movieId** : Melakukan persiapan data untuk menjadikan (*encode*) fitur ‘userId’ dan ‘movieID’ ke dalam indeks integer. Hal ini diperlukan agar data siap digunakan untuk pemodelan.
 - **Memetakan userId dan movieId** : Petakan userId dan movieId ke dataframe yang berkaitan. Hal ini diperlukan agar data yang sudah di *encode* dipetakan kemudian dimasukan kedalam dataframe yang berkaitan.
 - **Cek data dan ubah nilai rating**: cek beberapa hal dalam data seperti jumlah *user*, jumlah *movie*, dan mengubah nilai *rating* menjadi *float*, cek nilai *minimum* dan *maximum*. Hal ini dilakukan untuk mengecek data yang sudah siap digunakan untuk pemodelan.
 - **Membagi data untuk latih dan validasi** : Membagi dataset menjadi data latih dan data validasi dengan perbandingan 80:20 yaitu 80 persen data akan menjadi data latih dan 20 persen data akan menjadi data validasi . Hal ini dilakukan supaya kita dapat melakukan validasi dengan benar tanpa bias dari model.
@@ -203,7 +203,7 @@ Hasil evaluasi dari masing-masing model:
 
 Film yang direkomendasikan di masa lalu yaitu fil Toy Story (1995) dengan genre Adventure, Animation, Children, Comedy, dan Fantasy. Top 5 item hasil rekomendasi film semua memilki genre yang sama atau *relevant* yaitu Adventure, Animation, Children, Comedy, dan Fantasy dengan genre film Toy Story. Dengan begitu hasil rekomendasi dapat dievaluasi menggunakan rumus presisi berikut :
 
-$*recommender system precision*: P = frac{# of our recommendations that are relevant}{# of items we recommended} $
+$*recommender system precision*: P = \frac{# of our recommendations that are relevant}{# of items we recommended} $
 
 Dengan begitu hasil presisi yang didapat adalah 100 persen .
 
