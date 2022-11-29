@@ -48,6 +48,7 @@ Link dataset dapat dilihat dari tautan berikut : [*Movie Recommendation* Dataset
 
 Untuk memahami *Movie Recommendation* dataset akan menggunakan beberapa teknik *Univariate Explanatory Data Analysis (EDA)* pada variabel-variabel berikut:
 1.   Variabel links
+
 Variabel links memiliki jumlah data sebanyak 34208 data dan jumlah data link film yang unik berdasarkan movieId sebanyak 34208 data. Info variabel links dapat dilihat pada tabel 1 berikut :
 
 Tabel 1. Info variabel links
@@ -64,6 +65,7 @@ Pada Tabel 1, dapat dilihat bahwa:
 * Terdapat 1 buah kolom bertipe float64 yaitu tmdbId
 
 2.   Variabel movies
+
 Variabel movies memiliki total jumlah data sebanyak 34208 dan jumlah data movies unik berdasarkan movieId sebanyak 34208. Terdapat judul film sebanyak 34185 judul dan 1446 genre yang berbeda. Info variabel movies dapat dilihat pada tabel 2 berikut :
 
 Tabel 2. Info variabel movies
@@ -81,6 +83,7 @@ Pada Tabel 2, dapat dilihat bahwa:
 * Terdapat 2 buah kolom bertipe object yaitu title dan genres
 
 3.   Variabel ratings
+
 Variabel ratings memiliki jumlah data sebanyak 22884377 data. Karena data terlalu banyak, maka data yang akan digunakan hanya 30000 data saja. Jumlah data unik ratings dari user sebanyak 351 data
 dan dari film sebanyak  5380 data. Info variabel ratings dapat dilihat pada tabel 3 berikut:
 
@@ -116,6 +119,7 @@ Tabel 4. Deskripsi variabel ratings
 Pada tabel 4, dapat dilihat dari nilai max dan min bahwa nilai rating terbesar yaitu 5 dan nilai rating terkecil yaitu 0.5
 
 4.   Variabel tags
+
 Variabel tags memiliki jumlah data sebanyak 586994 data. Karena data terlalu banyak, maka data yang akan digunakan hanya 30000 data saja. Jumlah data unik tag sebanyak 6509 data. Info variabel tags dapat dilihat pada tabel 4 berikut:
 
 Tabel 5. Info variabel tags
@@ -140,9 +144,9 @@ Dalam proses persiapan data dibagi menjadi 2 berdasarkan algoritma yang digunaka
 
 ***Collaborative filtering***
 
-- ** *Encode* fitur userId dan movieId** : Melakukan persiapan data untuk menjadikan (*encode*) fitur ‘userId’ dan ‘movieID’ ke dalam indeks integer. Hal ini diperlukan agar data siap digunakan untuk pemodelan.
+- ** *Encode* fitur userId dan movieId*** : Melakukan persiapan data untuk menjadikan (*encode*) fitur ‘userId’ dan ‘movieID’ ke dalam indeks integer. Hal ini diperlukan agar data siap digunakan untuk pemodelan.
 - **Memetakan userId dan movieId** : Petakan userId dan movieId ke dataframe yang berkaitan. Hal ini diperlukan agar data yang sudah di *encode* dipetakan kemudian dimasukan kedalam dataframe yang berkaitan.
-- ** Cek data dan ubah nilai rating **: cek beberapa hal dalam data seperti jumlah *user*, jumlah *movie*, dan mengubah nilai *rating* menjadi *float*, cek nilai *minimum* dan *maximum*. Hal ini dilakukan untuk mengecek data yang sudah siap digunakan untuk pemodelan.
+- **Cek data dan ubah nilai rating**: cek beberapa hal dalam data seperti jumlah *user*, jumlah *movie*, dan mengubah nilai *rating* menjadi *float*, cek nilai *minimum* dan *maximum*. Hal ini dilakukan untuk mengecek data yang sudah siap digunakan untuk pemodelan.
 - **Membagi data untuk latih dan validasi** : Membagi dataset menjadi data latih dan data validasi dengan perbandingan 80:20 yaitu 80 persen data akan menjadi data latih dan 20 persen data akan menjadi data validasi . Hal ini dilakukan supaya kita dapat melakukan validasi dengan benar tanpa bias dari model.
 
 ## Modeling
@@ -159,6 +163,7 @@ Pada tahap ini, model *machine learning* yang akan dipakai ada 2 algoritma. Beri
 Hasil dari masing-masing model:
 
 1. ***Content-based filtering***
+
 Berikut adalah film yang disukai pengguna di masa lalu:
 
 Tabel 6. Film yang disukai pengguna di masa lalu.
@@ -182,6 +187,7 @@ Tabel 7. Hasil rekomendasi algoritma *content-based filtering*
 Dapat dilihat pada tabel 7, ada 5 film yang direkomendasikan bergenre yang sama yaitu *Adventure, Animation, Children, Comedy,* dan *Fantasy*. Hal ini didasarkan pada kesukaan penonton atau pengguna pada masa lalu.
 
 2. ***Collaborative filtering***
+
 Berikut merupakan film berdasarkan *rating* yang ada :
 
 Gambar 1. Hasil rekomendasi algoritma *collaborative filtering*
@@ -194,13 +200,15 @@ Pada Gambar 1, film yang memiliki *rating* tinggi dari pengguna paling banyak be
 Hasil evaluasi dari masing-masing model:
 
 1. ***Content-based filtering***
+
 Film yang direkomendasikan di masa lalu yaitu fil Toy Story (1995) dengan genre Adventure, Animation, Children, Comedy, dan Fantasy. Top 5 item hasil rekomendasi film semua memilki genre yang sama atau *relevant* yaitu Adventure, Animation, Children, Comedy, dan Fantasy dengan genre film Toy Story. Dengan begitu hasil rekomendasi dapat dievaluasi menggunakan rumus presisi berikut :
 
-$ *recommender system precision*: P = frac{# of our recommendations that are relevant}{# of items we recommended} $
+$*recommender system precision*: P = frac{# of our recommendations that are relevant}{# of items we recommended} $
 
 Dengan begitu hasil presisi yang didapat adalah 100 persen .
 
 2.  ***Collaborative filtering***
+
 Evaluasi metrik yang digunakan untuk mengukur kinerja model adalah metrik RMSE (Root Mean Squared Error). RMSE adalah metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Root Mean Square Error adalah hasil dari akar kuadrat Mean Square Error. Keakuratan metode estimasi kesalahan pengukuran ditandai dengan adanya nilai RMSE yang kecil. Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besa
 
 
@@ -212,7 +220,7 @@ Dimana :
 
 y = Nilai Aktual permintaan
 
-$hat{y}$ = Nilai hasil peramalan
+$\hat{y}$ = Nilai hasil peramalan
 
 n = banyaknya data
 
