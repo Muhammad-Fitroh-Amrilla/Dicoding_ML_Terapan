@@ -203,7 +203,7 @@ Hasil evaluasi dari masing-masing model:
 
 Film yang direkomendasikan di masa lalu yaitu fil Toy Story (1995) dengan genre Adventure, Animation, Children, Comedy, dan Fantasy. Top 5 item hasil rekomendasi film semua memilki genre yang sama atau *relevant* yaitu Adventure, Animation, Children, Comedy, dan Fantasy dengan genre film Toy Story. Dengan begitu hasil rekomendasi dapat dievaluasi menggunakan rumus presisi berikut :
 
-$*recommender system precision*: P = \frac{# of our recommendations that are relevant}{# of items we recommended} $
+*recommender system precision*: P = $\frac{# of our recommendations that are relevant}{# of items we recommended}$
 
 Dengan begitu hasil presisi yang didapat adalah 100 persen .
 
