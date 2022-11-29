@@ -235,6 +235,7 @@ Bisa dilihat pada Gambar 2. proses training model cukup smooth dan model konverg
 
 
 **Kesimpulan** :  Berhasil menghasilkan 5 rekomendasi film terbaik menggunakan teknik *content-based filtering* dengan presisi 100 persen dan berhasil menghasilkan 10 rekomendasi terbaik menggunakan teknik *collaborative filtering* dengan RMSE sebesar 0.17 .
+
 **Referensi** :
 
 [1]	D. Nugraha, T. W. Purboyo, dan R. A. Nugrahaeni, “SISTEM REKOMENDASI FILM MENGGUNAKAN METODE USER BASED COLLABORATIVE FILTERING,” hlm. 11.
