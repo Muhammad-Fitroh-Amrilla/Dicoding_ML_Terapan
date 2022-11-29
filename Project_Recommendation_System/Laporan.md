@@ -17,7 +17,7 @@ Oleh karena itu sistem rekomendasi film dikembangkan untuk menjawab permasalahan
 
 Berdasarkan latar belakang yang telah dijelaskan diatas, terdapat beberapa masalah yaitu:
 - Berdasarkan data mengenai pengguna, bagaimana membuat sistem rekomendasi film yang dipersonalisasi dengan teknik *content-based filtering*?
-- Dengan data rating yang dimiliki, bagaimana merekomendasikan film lain yang mungkin disukai dan belum pernah *ditonton oleh pengguna*? 
+- Dengan data rating yang dimiliki, bagaimana merekomendasikan film lain yang mungkin disukai dan belum pernah ditonton oleh pengguna? 
 
 ### Goals
 
@@ -30,7 +30,7 @@ Solusi yang dapat dilakukan untuk sistem rekomendasi film dengan menggunakan 2 a
 - ***Content-based filtering*** : merekomendasikan item yang mirip dengan item yang disukai pengguna di masa lalu. Algoritma ini bekerja dengan menyarankan item serupa yang pernah disukai di masa lalu atau sedang dilihat di masa kini kepada pengguna. Semakin banyak informasi yang diberikan pengguna, semakin baik akurasi sistem rekomendasi.
 - ***Collaborative filtering*** : bergantung pada pendapat komunitas pengguna. Ia tidak memerlukan atribut untuk setiap itemnya seperti pada sistem berbasis konten.
 
-Algoritma *content based filtering* digunakan untuk merekomendasikan film berdasarkan aktivitas pengguna pada masa lalu, sedangkan algoritma *collaborative filltering* digunakan untuk merekomendasikan film berdasarkan *rating* yang paling tinggi.
+Algoritma *content based filtering* digunakan untuk merekomendasikan film berdasarkan aktivitas pengguna pada masa lalu, sedangkan algoritma *collaborative filtering* digunakan untuk merekomendasikan film berdasarkan *rating* yang paling tinggi.
 
 ## Data Understanding
 Data atau dataset yang digunakan pada proyek *machine learning* ini adalah data *Movie Recommendation* dataset yang didapat dari situs Kaggle. Dataset ini berisikan informasi mengenai film dari tahun 1996 sampai 2016. 
@@ -48,124 +48,165 @@ Link dataset dapat dilihat dari tautan berikut : [*Movie Recommendation* Dataset
 
 Untuk memahami *Movie Recommendation* dataset akan menggunakan beberapa teknik *Univariate Explanatory Data Analysis (EDA)* pada variabel-variabel berikut:
 1.   Variabel links
+Variabel links memiliki jumlah data sebanyak 34208 data dan jumlah data link film yang unik berdasarkan movieId sebanyak 34208 data. Info variabel links dapat dilihat pada tabel 1 berikut :
 
-| # | Column            | Non-Null Count | Dtype   |
-|---|-------------------|----------------|---------|
-| 0 | name              | 1061 non-null  | object  |
-| 1 | selling_price     | 1061 non-null  | int64   |
-| 2 | year              | 1061 non-null  | int64   |
-| 3 | seller_type       | 1061 non-null  | object  |
-| 4 | owner             | 1061 non-null  | object  |
-| 5 | km_driven         | 1061 non-null  | int64   |
-| 6 | ex_showroom_price | 626 non-null   | float64 |
+Tabel 1. Info variabel links
 
-Gambar 1. Info dataset
+| # | Column  | Non-Null Count | Dtype   |
+|---|---------|----------------|---------|
+| 0 | movieId | 34208 non-null | int64   |
+| 1 | imdbId  | 34208 non-null | int64   |
+| 2 | tmdbId  | 33912 non-null | float64 |
 
-Pada Gambar 1, dapat dilihat bahwa:
-*   Ada 3 kolom bertipe object, yaitu name, seller_type, owner
-*   Terdapat 3 kolom dengan tipe data int64, yaitu selling_price, year, km_driven 
-*   Terdapat 1 kolom dengan tipe data float64 yaitu ex_showroom_price
+Pada Tabel 1, dapat dilihat bahwa:
 
-2.   Menangani *missing value & outliers*
+* Terdapat 2 buah kolom bertipe int64 yaitu movieId dan imdbId
+* Terdapat 1 buah kolom bertipe float64 yaitu tmdbId
 
-Langkah selanjutnya menggunakan salah satu teknik untuk mengatasi *missing value* yaitu mengganti *missing value* dengan nilai rata-rata. Kemudian menangani *outlier*, *outliers* adalah sampel yang nilainya sangat jauh dari cakupan umum data utama. Pada kasus ini, *outliers* akan dideteksi dengan teknik visualisasi data (boxplot). Kemudian, *ouliers* akan ditangani dengan teknik *IQR method*.
+2.   Variabel movies
+Variabel movies memiliki total jumlah data sebanyak 34208 dan jumlah data movies unik berdasarkan movieId sebanyak 34208. Terdapat judul film sebanyak 34185 judul dan 1446 genre yang berbeda. Info variabel movies dapat dilihat pada tabel 2 berikut :
 
-3.   Analisis *Univariate*
-Fitur kategorik
+Tabel 2. Info variabel movies
 
-![name](https://user-images.githubusercontent.com/64821050/204170314-a77fd41e-51e1-43a0-86c4-18652150df5e.PNG)
-
-
-Gambar 2. Analisis fitur name
-
-Pada Gambar 2, jenis sepeda motor terbanyak yaitu Bajaj Pulsar 150 dengan jumlah sampel sebanyak 39 sampel dan presentase 4.4 %
-
-![seller](https://user-images.githubusercontent.com/64821050/204170333-60e1d74a-10d1-47bc-a3e6-eeff7a9df45e.PNG)
-
-Gambar 3. Analisis fitur seller_type
-
-Pada Gambar 3, dapat diketahui bahwa 876 penjual sepeda motor merupakan perorangan dan 4 diantaranya merupakan dealer
-
-![owner](https://user-images.githubusercontent.com/64821050/204170359-b74dc667-e38f-4caf-834f-0de4b1af7e3e.PNG)
-
-Gambar 4. Analisis fitur owner
-
-Pada Gambar 4, dapat dilihat bahwa sebanyak 87.6 % sepeda motor hanya dimiliki oleh orang pertama, 11.5 % dimiliki sampai dengan orang kedua dan yang terkahir 0.9 % sepeda motor dimiliki sampai dengan orang ketiga.
-
-Fitur Numerik
-
-![Univariate_numerik](https://user-images.githubusercontent.com/64821050/204170385-2a96773a-c0c0-46fc-8570-848013c83907.PNG)
-
-Gambar 5. Analisis fitur numerik
-
-Pada Gambar 5, dapat dilihat bahwa :
-* Rentang harga jual sepeda motor dari ratusan dollar sampai dengan 130000 Dollar
-* Jumlah terbanyak sepeda motor yang dijual berada di rentang harga 20000-40000 Dollar
+| # | Column  | Non-Null Count | Dtype  |
+|---|---------|----------------|--------|
+| 0 | movieId | 34208 non-null | int64  |
+| 1 | title   | 34208 non-null | object |
+| 2 | genres  | 34208 non-null | object |
 
 
-4.   Analisis *Multivariate* 
-Fitur Kategorik
+Pada Tabel 2, dapat dilihat bahwa:
 
-![Multivariate_kategorik](https://user-images.githubusercontent.com/64821050/204170437-1c941849-bd55-42bd-acb4-8ebb0f7a896d.PNG)
+* Terdapat 1 buah kolom bertipe int64 yaitu movieId
+* Terdapat 2 buah kolom bertipe object yaitu title dan genres
 
-Gambar 6. Analisis *multivariate* fitur kategorik
+3.   Variabel ratings
+Variabel ratings memiliki jumlah data sebanyak 22884377 data. Karena data terlalu banyak, maka data yang akan digunakan hanya 30000 data saja. Jumlah data unik ratings dari user sebanyak 351 data
+dan dari film sebanyak  5380 data. Info variabel ratings dapat dilihat pada tabel 3 berikut:
 
-Pada gambar 6, dapat dilihat bahwa :
-*   Kategori dalam fitur name terlalu banyak sehingga fitur name tidak mempengaruhi fitur selling_price
-*   Pada fitur seller_type , individual merupakan yang paling tinggi dalam seller_type memiliki harga rendah. Sehingga fitur seller_type memiliki dampak yang kecil terhadap rata-rata harga jual
-*   Pada fitur owner rata-rata harga cenderung mirip. Rentangnya berada antara 35000 hingga 45000. Sehingga, fitur cut memiliki pengaruh atau dampak yang kecil terhadap rata-rata harga jual.
+Tabel 3. Info variabel ratings
 
-Fitur Numerik
+| # | Column    | Dtype   |
+|---|-----------|---------|
+| 0 | userId    | int64   |
+| 1 | movieId   | int64   |
+| 2 | rating    | float64 |
+| 3 | timestamp | int64   |
 
-![Multivariate_numerik](https://user-images.githubusercontent.com/64821050/204170412-2b7b1404-720a-4418-bcc1-442a846e08db.PNG)
+Pada Tabel 3, dapat dilihat bahwa:
 
-Gambar 7. Analisis *multivariate* fitur numerik
+* Terdapat 3 buah kolom bertipe int64 yaitu userId, movieId dan timestamp
+* Terdapat 1 buah kolom bertipe float64 yaitu rating
 
-Dapat kita lihat bahwa :
-*   selling_price memiliki korelasi positip terhadap variabel year dan ex_showroom_price
-*   sedangkan variabel km_driven memiliki korelasi negatif terhadap selling_price
+Deskripsi dari variabel ratings dapat dilihat pada tabel 4 berikut:
 
-*Correlation matrix* untuk fitur numerik
+Tabel 4. Deskripsi variabel ratings
 
-![Corrmap](https://user-images.githubusercontent.com/64821050/204170454-af0706e0-ff98-44dc-9f9f-c4beed636e92.PNG)
+|       |       userId |       movieId |      ratings | timestamp    |
+|------:|-------------:|--------------:|-------------:|--------------|
+| count | 30000.000000 |  30000.000000 | 30000.000000 | 3.000000e+04 |
+|  mean |   163.875767 |  11711.897767 |     3.487700 | 1.132281e+09 |
+|   std |   100.419974 |  24747.244802 |     1.141019 | 1.794357e+08 |
+|   min |     1.000000 |      1.000000 |     0.500000 | 8.270984e+08 |
+|   25% |    74.000000 |    919.000000 |     3.000000 | 9.742371e+08 |
+|   50% |   166.000000 |   2289.000000 |     4.000000 | 1.124478e+09 |
+|   75% |   247.000000 |   5060.000000 |     4.000000 | 1.287274e+09 |
+|   max |   351.000000 | 148667.000000 |     5.000000 | 1.453995e+09 |
 
-Gambar 8. *Correlation matrix* fitur numerik
+Pada tabel 4, dapat dilihat dari nilai max dan min bahwa nilai rating terbesar yaitu 5 dan nilai rating terkecil yaitu 0.5
 
-Pada Gambar 8, dapat dilihat matriks korelasi diatas, korelasi fitur year dan ex_showroom_price terhadap fitur selling_price berada pada rentang cukup (0.25 - 0.5) dan fitur yang memiliki korelasi paling tinggi terhadap fitur selling_price yaitu year sebesar 0.58
+4.   Variabel tags
+Variabel tags memiliki jumlah data sebanyak 586994 data. Karena data terlalu banyak, maka data yang akan digunakan hanya 30000 data saja. Jumlah data unik tag sebanyak 6509 data. Info variabel tags dapat dilihat pada tabel 4 berikut:
+
+Tabel 5. Info variabel tags
+
+| # |    Column |  Non-Null Count |  Dtype |
+|--:|----------:|----------------:|-------:|
+| 0 |    userId | 586994 non-null |  int64 |
+| 1 |   movieId | 586994 non-null |  int64 |
+| 2 |       tag | 586978 non-null | object |
+| 3 | timestamp | 586994 non-null |  int64 |
 
 ## Data Preparation
-Dalam *data preparation*, 3 hal yang akan dilakukan sebelum memasukkan data ke model latih:
+Dalam proses persiapan data dibagi menjadi 2 berdasarkan algoritma yang digunakan yaitu pada *content-based filtering* dan *collaborative filtering* . Berikut tahapan-tahapan persiapan data:
+***Content-based filtering***
 
-- *Encoding* Fitur Kategorik : *Encoding* fitur kategorik dilaksanakan di beberapa fitur yang bertipe *object*. Hal ini dilakukan karena model *machine learning* hanya dapat menerima data dalam bentuk numerik. Untuk *encoding* fitur menggunakan *LabelEncoder*.
-- *Train-Test-Split* : Membagi dataset menjadi data latih dan data uji dengan perbandingan 90:10 yaitu 90 persen data akan menjadi data latih dan 10 persen data akan menjadi data uji . Hal ini dilakukan supaya kita dapat melakukan validasi dengan benar tanpa bias dari model.
-- *Standarisasi* : Standarisasi menggunakan teknik *StandarScaler* dari *library Scikitlearn*. *StandardScaler* melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi.  *StandardScaler* menghasilkan distribusi dengan standar deviasi sama dengan 1 dan mean sama dengan 0. *Scaling* ini dilaksanakan untuk membantu model *machine learning* yang akan dipakai lebih mudah diolah. 
+- **Menangani *missing value*** : mengecek data apakah data tersebut ada yang bernilai NaN atau tidak, jika terdapat data yang kosong maka akan dihapus menggunakan fungsi dropna. Hal ini dilakukan karena missing value akan memengaruhi kinerja dan harus ada langkah khusus yang perlu diambil untuk mengatasinya.
+- **Mengurutkan data** : mengurutkan data secara *ascending*. Hal ini dilakukan karena data yang terurut akan terlihat lebih rapih.
+- **Menangani duplikat data** : Menghapus data yang duplikat dengan fungsi drop_duplicates(). Dalam hal ini, membuang data duplikat pada kolom ‘movieId’. Hal ini dilakukan karena data duplikat memiliki informasi yang sama sehingga apabila dihapus tidak akan mempengaruhi kinerja.
+- **Konversi data menjadi list** : Melakukan konversi data *series* menjadi *list*. Dalam hal ini, menggunakan fungsi tolist() dari *library numpy*. Hal ini dilakukan untuk menyederhanakan data menjadi bentuk *list*.
+- **Membuat Dictionary** : Membuat *dictionary* untuk menentukan pasangan *key-value* pada data movie_id, movie_name, dan movie_genre yang telah disiapkan sebelumnya. Hal ini dilakukan untuk persiapan data sebelum model dilatih.
+
+
+***Collaborative filtering***
+
+- ** *Encode* fitur userId dan movieId** : Melakukan persiapan data untuk menjadikan (*encode*) fitur ‘userId’ dan ‘movieID’ ke dalam indeks integer. Hal ini diperlukan agar data siap digunakan untuk pemodelan.
+- **Memetakan userId dan movieId** : Petakan userId dan movieId ke dataframe yang berkaitan. Hal ini diperlukan agar data yang sudah di *encode* dipetakan kemudian dimasukan kedalam dataframe yang berkaitan.
+- ** Cek data dan ubah nilai rating **: cek beberapa hal dalam data seperti jumlah *user*, jumlah *movie*, dan mengubah nilai *rating* menjadi *float*, cek nilai *minimum* dan *maximum*. Hal ini dilakukan untuk mengecek data yang sudah siap digunakan untuk pemodelan.
+- **Membagi data untuk latih dan validasi** : Membagi dataset menjadi data latih dan data validasi dengan perbandingan 80:20 yaitu 80 persen data akan menjadi data latih dan 20 persen data akan menjadi data validasi . Hal ini dilakukan supaya kita dapat melakukan validasi dengan benar tanpa bias dari model.
 
 ## Modeling
 
-Pada tahap ini, model *machine learning* yang akan dipakai ada tiga algoritma. Lalu performa masing-masing algoritma akan dievaluasi dan menentukan algoritma mana yang memberikan hasil prediksi terbaik. Ketiga algoritma yang akan digunakan, antara lain:
+Pada tahap ini, model *machine learning* yang akan dipakai ada 2 algoritma. Berikut algoritma yang akan digunakan:
 
-1.   *K-Nearest Neighbors* (KNN) : KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif). Untuk parameter yang akan digunakan yaitu n_neighbors dengan nilai sebesar 10.
-		- **kelebihan** : algoritma KNN yaitu mudah dipahami dan digunakan serta algoritma yang relatif sederhana dibandingkan dengan algoritma lain.
-		- **kekurangan** : jika dihadapkan pada jumlah fitur atau dimensi yang besar
-2.   *Random Forest* : Algoritma ini disusun dari banyak algoritma pohon (*decision tree*) yang pembagian data dan fiturnya dipilih secara acak.  Untuk parameter yang akan digunakan yaitu n_estimators=50, max_depth=16, random_state=55, n_jobs=-1.
-		- **kelebihan** : Kuat terhadap data *outlier* (pencilan data), berjalan secara efisien pada kumpulan data yang besar, dan bekerja dengan baik dengan data non-linear.
-		- **kekurangan** : Pembelajaran bisa berjalan lambat, tergantung pada parameter yang digunakan dan tidak bisa memperbaiki model yang dihasilkan secara berulang.
-3.   *Boosting Algorithm* : Algoritma yang menggunakan teknik *boosting* bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan.  Untuk parameter yang akan digunakan yaitu learning_rate=0.05, random_state=55.
-		- **kelebihan** : Algoritma ini sangat *powerful* dalam meningkatkan akurasi prediksi. Algoritma *boosting* sering mengungguli model yang lebih sederhana seperti *logistic regression* dan *random forest*
-		- **kekurangan** : *Learning* secara progresif dan sangat sensitif terhadap data *noise* dan *outlier*.
+1.   *Content-based filtering* : algoritma *content-based filtering* dibuat dengan apa yang disukai pengguna pada masa lalu.
+		- **kelebihan** : Model tidak memerlukan data tentang pengguna lain, karena rekomendasi bersifat khusus untuk pengguna ini. Hal ini mempermudah penskalaan ke sejumlah besar pengguna.
+		- **kekurangan** : Model hanya dapat membuat rekomendasi berdasarkan minat pengguna yang ada. Dengan kata lain, model memiliki kemampuan terbatas untuk memperluas minat pengguna yang ada.
+2.   *Collaborative filtering* : algoritma *collaborative filtering* dibuat dengan memanfaatkan tingkat *rating* dari film tersebut. 
+		- **kelebihan** : Tidak memerlukan pengetahuan domain dan model dapat membantu pengguna menemukan minat baru..
+		- **kekurangan** :Tidak dapat menangani item baru dan sulit menyertakan fitur samping untuk kueri/item.
 
-*Error* dari masing-masing model:
+Hasil dari masing-masing model:
 
-![msevis](https://user-images.githubusercontent.com/64821050/204170536-61960d51-e2c2-40ec-984c-8bdc9cc07c62.PNG)
+1. ***Content-based filtering***
+Berikut adalah film yang disukai pengguna di masa lalu:
 
-Gambar 9. Visualisasi mse
+Tabel 6. Film yang disukai pengguna di masa lalu.
 
-Pada Gambar 9, dapat diliat bahwa model *Random Forest* memiliki nilai *error* yang lebih kecil dibanding model lain menandakan bahwa model *Random Forest* merupakan model terbaik yang dapat digunakan untuk memprediksi harga jual sepeda motor bekas.
+| id |       movie_name |                                           genre |
+|---:|-----------------:|------------------------------------------------:|
+|  1 | Toy Story (1995) | Adventure\|Animation\|Children\|Comedy\|Fantasy |
+
+Pada tabel 6, dapat dilihat bahwa pengguna menyukai film yang berjudul *Toy Story* (1995) yang bergenre *Adventure, Animation, Children, Comedy,* dan *Fantasy*. Maka hasil 5 rekomendasi terbaik berdasarkan algoritma *content-based filtering* adalah sebagai berikut :
+
+Tabel 7. Hasil rekomendasi algoritma *content-based filtering*
+
+|   |                       movie_name |                                           genre |
+|--:|---------------------------------:|------------------------------------------------:|
+| 0 |            Monsters, Inc. (2001) | Adventure\|Animation\|Children\|Comedy\|Fantasy |
+| 1 |                      Antz (1998) | Adventure\|Animation\|Children\|Comedy\|Fantasy |
+| 2 |               Toy Story 2 (1999) | Adventure\|Animation\|Children\|Comedy\|Fantasy |
+| 3 | Emperor's New Groove, The (2000) | Adventure\|Animation\|Children\|Comedy\|Fantasy |
+| 4 |            Boxtrolls, The (2014) | Adventure\|Animation\|Children\|Comedy\|Fantasy | 
+
+Dapat dilihat pada tabel 7, ada 5 film yang direkomendasikan bergenre yang sama yaitu *Adventure, Animation, Children, Comedy,* dan *Fantasy*. Hal ini didasarkan pada kesukaan penonton atau pengguna pada masa lalu.
+
+2. ***Collaborative filtering***
+Berikut merupakan film berdasarkan *rating* yang ada :
+
+Gambar 1. Hasil rekomendasi algoritma *collaborative filtering*
+
+
+
+Pada Gambar 1, film yang memiliki *rating* tinggi dari pengguna paling banyak bergenre *drama, action,* dan *western*. Dan hasil rekomendasi juga menunjukan 10 film dengan genre *drama, action,* dan *western*.
 
 ## Evaluation
-Metrik yang akan kita gunakan pada prediksi ini adalah MSE atau *Mean Squared Error* yang menghitung jumlah selisih kuadrat rata-rata nilai sebenarnya dengan nilai prediksi. MSE didefinisikan dalam persamaan berikut
+Hasil evaluasi dari masing-masing model:
 
-MSE = $\frac{1}{n} \Sigma_{i=1}^n({y}-\hat{y})^2$
+1. ***Content-based filtering***
+Film yang direkomendasikan di masa lalu yaitu fil Toy Story (1995) dengan genre Adventure, Animation, Children, Comedy, dan Fantasy. Top 5 item hasil rekomendasi film semua memilki genre yang sama atau *relevant* yaitu Adventure, Animation, Children, Comedy, dan Fantasy dengan genre film Toy Story. Dengan begitu hasil rekomendasi dapat dievaluasi menggunakan rumus presisi berikut :
+
+$ *recommender system precision*: P = frac{# of our recommendations that are relevant}{# of items we recommended} $
+
+Dengan begitu hasil presisi yang didapat adalah 100 persen .
+
+2.  ***Collaborative filtering***
+Evaluasi metrik yang digunakan untuk mengukur kinerja model adalah metrik RMSE (Root Mean Squared Error). RMSE adalah metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Root Mean Square Error adalah hasil dari akar kuadrat Mean Square Error. Keakuratan metode estimasi kesalahan pengukuran ditandai dengan adanya nilai RMSE yang kecil. Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besa
+
+
+Rumus dari matriks RMSE adalah sebagai berikut:
+
+MSE = $\sqrt{\frac{1}{n} \Sigma_{i=1}^n({y}-\hat{y})^2}$
 
 Dimana :
 
@@ -175,44 +216,22 @@ $hat{y}$ = Nilai hasil peramalan
 
 n = banyaknya data
 
-berikut adalah hasil evaluasi ketiga model menggunakan mse pada tabel 1.
+Berikut visualisasi RMSE menggunakan *collaborative filtering*:
 
-Tabel 1. Nilai mse pada data uji dan data latih dari ketiga model
+Gambar 2. Visualisasi RMSE 
 
-|              |   **Train**   |    **Test**   |
-|--------------|:-------------:|:-------------:|
-|    **KNN**   | 187692.530355 | 408256.640368 |
-|    **RF**    | 21742.955798  | 191000.645023 |
-| **Boosting** | 211202.420774 | 248793.555393 |
 
-Pada Tabel 1, dapat diliat bahwa model *Random Forest* memiliki nilai *error* yang lebih kecil dibanding model lain pada data latih dan data uji.
 
-Hasil prediksi masing-masing model dari 10 data dapat dilihat pada tabel 2.
+Bisa dilihat pada Gambar 2. proses training model cukup smooth dan model konvergen pada epochs sekitar 50. Dari proses latih, memperoleh nilai error akhir sebesar sekitar 0.17 dan error pada data validasi sebesar 0.21 . Nilai tersebut cukup bagus untuk sistem rekomendasi.
 
-Tabel 2. Hasil prediksi ketiga model dari 10 data
-|          | **y_true** | **prediksi_KNN** | **prediksi_RF** | **prediksi_Boosting** |
-|----------|-----------:|-----------------:|----------------:|----------------------:|
-|  **491** |      55000 |          31550.0 |         27342.2 |               28580.3 |
-|  **637** |      65000 |          48300.0 |         52330.0 |               37077.8 |
-| **1043** |      27000 |          25699.9 |         29220.0 |               38776.2 |
-|  **203** |      30000 |          27650.0 |         17340.0 |               25483.2 |
-|  **415** |      38000 |          31840.0 |         30802.0 |               32782.8 |
-|  **525** |      25000 |          29420.0 |         27883.1 |               28580.3 |
-|  **939** |      30000 |          30970.0 |         31870.0 |               28580.3 |
-|  **212** |      15000 |          27300.0 |         20978.0 |               25129.9 |
-|  **778** |      20000 |          20460.0 |         17548.0 |               24911.5 |
-|  **826** |     100000 |         107200.0 |         84346.0 |               81196.1 |
 
-Pada tabel 2, dapat kita lihat bahwa prediksi dari ketiga algoritma yang paling mendekati y_true adalah prediksi *Random Forest* menandakan bahwa *Random Forest* merupakan algoritma terbaik dibandingkan dengan algoritma yang lain.
 
-**Kesimpulan** :  Korelasi variabel yang mempengaruhi harga sepeda motor bekas terdapat beberapa variabel yang memiliki korelasi positif dan negatif terhadap variabel harga jual dan untuk model *machine learning* yang memiliki nilai *error* paling rendah yaitu model *Random Forest* yang menandakan bahwa *Random Forest* merupakan algoritma terbaik dibandingkan dengan algoritma yang lain dalam hal memprediksi harga sepeda motor bekas.
-
+**Kesimpulan** :  Berhasil menghasilkan 5 rekomendasi film terbaik menggunakan teknik *content-based filtering* dengan presisi 100 persen dan berhasil menghasilkan 10 rekomendasi terbaik menggunakan teknik *collaborative filtering* dengan RMSE sebesar 0.17 .
 **Referensi** :
 
-[1]	I. Sunoto dan L. Lukman, “SISTEM PENDUKUNG KEPUTUSAN PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS DENGAN PENDEKATAN LOGIKA FUZZY INFRENCE SYSTEM MAMDANI,” Simet, vol. 6, no. 2, hlm. 305, Nov 2015, doi: 10.24176/simet.v6i2.466.
+[1]	D. Nugraha, T. W. Purboyo, dan R. A. Nugrahaeni, “SISTEM REKOMENDASI FILM MENGGUNAKAN METODE USER BASED COLLABORATIVE FILTERING,” hlm. 11.
 
-[2]	I. Prasetya, D. Y. Rahayu, dan M. Kom, “PENENTUAN HARGA JUAL SEPEDA MOTOR BEKAS MENGGUNAKAN FUZZY LOGIC (METODE TSUKAMOTO) DAN IMPLEMENTASINYA,” hlm. 8.
-
+[2]	M. R. A. Zayyad, A. Kurniawardhani, S. Si, dan M. Kom, “Penerapan Metode Deep Learning pada Sistem Rekomendasi Film,” hlm. 5.
 		
 **---Ini adalah bagian akhir laporan---**
 
