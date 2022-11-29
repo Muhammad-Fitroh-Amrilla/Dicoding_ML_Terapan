@@ -192,7 +192,7 @@ Berikut merupakan film berdasarkan *rating* yang ada :
 
 Gambar 1. Hasil rekomendasi algoritma *collaborative filtering*
 
-
+![Prediksi CF](https://user-images.githubusercontent.com/64821050/204574794-e56af57a-ff4e-48b6-ab5e-5889d7e3ab66.PNG)
 
 Pada Gambar 1, film yang memiliki *rating* tinggi dari pengguna paling banyak bergenre *drama, action,* dan *western*. Dan hasil rekomendasi juga menunjukan 10 film dengan genre *drama, action,* dan *western*.
 
@@ -228,11 +228,9 @@ Berikut visualisasi RMSE menggunakan *collaborative filtering*:
 
 Gambar 2. Visualisasi RMSE 
 
-
+![RMSE](https://user-images.githubusercontent.com/64821050/204574857-44721c0c-b8a9-4201-a5c9-00b01b607155.PNG)
 
 Bisa dilihat pada Gambar 2. proses training model cukup smooth dan model konvergen pada epochs sekitar 50. Dari proses latih, memperoleh nilai error akhir sebesar sekitar 0.17 dan error pada data validasi sebesar 0.21 . Nilai tersebut cukup bagus untuk sistem rekomendasi.
-
-
 
 **Kesimpulan** :  Berhasil menghasilkan 5 rekomendasi film terbaik menggunakan teknik *content-based filtering* dengan presisi 100 persen dan berhasil menghasilkan 10 rekomendasi terbaik menggunakan teknik *collaborative filtering* dengan RMSE sebesar 0.17 .
 
